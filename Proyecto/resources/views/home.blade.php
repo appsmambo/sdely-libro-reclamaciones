@@ -134,8 +134,8 @@
               <label for="motivo">Motivo:</label>
               <select name="motivo" id="motivo" class="form-control validate[required]">
                 <option value="">Seleccione</option>
-                <option value="reclamo">Reclamo</option>
-                <option value="queja">Queja</option>
+                <option value="Reclamo">Reclamo</option>
+                <option value="Queja">Queja</option>
               </select>
             </div>
           </div>

@@ -30,7 +30,7 @@ class HomeController extends Controller
             'pedido' => 'required',
         ]);
         // generar codigo
-        $codigo = substr(md5(uniqid(mt_rand(), true)), 0, 8);
+        $codigo = strtoupper(substr(md5(uniqid(mt_rand(), true)), 0, 8));
         // obtener ip
         $ip = request()->ip();
         // grabar registro
@@ -55,6 +55,35 @@ class HomeController extends Controller
         $registro->info_navegador = $request->info_navegador;
         $registro->save();
         return view('gracias');
+    }
+
+    public function getVerReclamos()
+    {
+        $registros = Registros::all();
+        return view('registros')->with('data', $registros);
+    }
+
+    public function getVerReclamo($id)
+    {
+        $registro = Registros::find($id);
+        return view('registro')->with('data', $registro);
+    }
+
+    public function postActualizarReclamo(Request $request)
+    {
+        $registro = Registros::find($request->id);
+        $registro->fecha_respuesta = date('Y-m-d');
+        $registro->respuesta = $request->respuesta;
+        $registro->estado = 2;
+        $registro->save();
+        $registros = Registros::all();
+        return view('registros')->with('data', $registros);
+    }
+
+    public function getConsultaReclamo($id)
+    {
+        $registro = Registros::find($id);
+        return view('consulta')->with('data', $registro);
     }
 
     public function getTipoCombustible()
