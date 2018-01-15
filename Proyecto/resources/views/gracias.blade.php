@@ -13,13 +13,13 @@
   <body>
     <section class="container">
       <h1>
-        Gracias por enviar sus datos!!!
+        Estimado: {{$nombres}}, muchas gracias por enviar sus datos!!!
       </h1>
       <p>
         Instrucciones:
       </p>
       <ol>
-        <li>do algo...
+        <li>Puede consultar el estado de su {{strtolower($motivo)}} en la siguiente dirección web: <a href="{{url('/consulta-reclamo/'.$codigo)}}" target="_blank">consultar estado</a>.
         <li>do algo...
         <li>do algo...
         <li>do algo...

@@ -54,7 +54,7 @@ class HomeController extends Controller
         $registro->ip = $ip;
         $registro->info_navegador = $request->info_navegador;
         $registro->save();
-        return view('gracias');
+        return view('gracias')->with('nombres', $request->nombres)->with('codigo', $codigo)->with('motivo', $request->motivo);
     }
 
     public function getVerReclamos()
