@@ -8,3 +8,5 @@ Route::get('/ver-reclamos', 'HomeController@getVerReclamos')->name('ver_reclamos
 Route::get('/ver-reclamo/{id}', 'HomeController@getVerReclamo')->name('ver_reclamo');
 Route::post('/actualizar-reclamo', 'HomeController@postActualizarReclamo')->name('actualizar_reclamo');
 Route::get('/consulta-reclamo/{id}', 'HomeController@getConsultaReclamo')->name('consulta_reclamo');
+
+Route::post('/send', 'EmailController@send');
