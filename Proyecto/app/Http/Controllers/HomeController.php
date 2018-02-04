@@ -59,7 +59,7 @@ class HomeController extends Controller
 
     public function getVerReclamos()
     {
-        $registros = Registros::all();
+        $registros = Registros::all()->sortByDesc('created_at');;
         return view('registros')->with('data', $registros);
     }
 

@@ -164,8 +164,8 @@
     <script>
       $(function() {
         $('#responder').click(function() {
-          $('#bloqueRespuesta, #actualizar').toggle('fast');
-          $('#respuesta').focus();
+          $('#respuesta').prop('readonly', true);
+          $('#actualizar').toggle('fast');
           $(this).fadeOut('fast');
         });
       })

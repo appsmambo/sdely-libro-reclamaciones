@@ -14,6 +14,17 @@
     <section class="container">
       <form action="#" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
+        <h2>
+          Estado de la solicitud: <small>{{$data->estado == 1 ? 'Solicitud ingresada.' : 'Solicitud atendida.'}}</small>
+        </h2>
+        <div class="row" id="bloqueRespuesta">
+          <div class="col-md">
+            <div class="form-group">
+              <label for="respuesta">Respuesta del proveedor:</label>
+              <textarea name="respuesta" id="respuesta" class="form-control" rows="4" readonly>{{$data->respuesta == '' ? 'Aún no se ha registrado respuesta.' : $data->respuesta}}</textarea>
+            </div>
+          </div>
+        </div>
         <h2>Datos personales del consumidor:</h2>
         <div class="row">
           <div class="col-md">
@@ -141,14 +152,6 @@
             <div class="form-group">
               <label for="pedido">Pedido:</label>
               <textarea id="pedido" class="form-control validate[required]" rows="4" readonly>{{$data->pedido}}</textarea>
-            </div>
-          </div>
-        </div>
-        <div class="row" id="bloqueRespuesta" {{$data->estado == 2 ? '' : 'style="display:none"'}}>
-          <div class="col-md">
-            <div class="form-group">
-              <label for="respuesta">Respuesta:</label>
-              <textarea name="respuesta" id="respuesta" class="form-control" rows="4" {{$data->estado == 2 ? 'readonly' : ''}}>{{$data->respuesta}}</textarea>
             </div>
           </div>
         </div>

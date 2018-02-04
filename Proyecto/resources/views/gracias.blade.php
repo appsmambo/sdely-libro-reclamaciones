@@ -12,19 +12,14 @@
   </head>
   <body>
     <section class="container">
-      <h1>
-        Estimado: {{$nombres}}, muchas gracias por enviar sus datos!!!
-      </h1>
+      <h2>
+        Estimado: {{$nombres}}, <small>su solicitud fue ingresado con éxito.</small>
+      </h2>
       <p>
-        Instrucciones:
+        Su código de solicitud es: <strong>{{$codigo}}</strong>.
+        <br>
+        Puede consultar el estado de su {{strtolower($motivo)}} en el siguiente enlace: <a href="{{url('/consulta-reclamo/'.$codigo)}}" target="_blank">consultar el estadode su solicitud</a>.
       </p>
-      <ol>
-        <li>Puede consultar el estado de su {{strtolower($motivo)}} en la siguiente dirección web: <a href="{{url('/consulta-reclamo/'.$codigo)}}" target="_blank">consultar estado</a>.
-        <li>do algo...
-        <li>do algo...
-        <li>do algo...
-        <li>do algo...
-      </ol>
     </section>
   </body>
 </html>

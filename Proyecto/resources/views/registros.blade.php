@@ -21,6 +21,7 @@
               <th>Nombre</th>
               <th>Tienda</th>
               <th>Motivo</th>
+              <th>Atendido</th>
               <th>&nbsp;</th>
             </tr>
         </thead>
@@ -32,6 +33,7 @@
             <td>{{$registro->apellido_paterno.' '.$registro->apellido_materno.', '.$registro->nombres}}</td>
             <td>{{$registro->tienda}}</td>
             <td>{{$registro->motivo}}</td>
+            <td>{{$registro->estado == 1 ? 'No' : 'Si'}}</td>
             <td><a href="{{url('ver-reclamo/'.$registro->id)}}" class="btn btn-info btn-sm">Ver</a></td>
           </tr>
         @empty
